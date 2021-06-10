@@ -15,3 +15,5 @@ export default function Home({ navigation }) {
     </View>
   )
 }
+
+//#E5E5E5
