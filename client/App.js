@@ -1,23 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as Font from 'expo-font';
+import Home from './screens/home'
+import AppLoading from 'expo-app-loading';
+
+const getFonts = () => Font.loadAsync({
+    'alegreya-regular': require('./assets/fonts/Alegreya-Regular.ttf'),
+    'alegreya-semibold': require('./assets/fonts/Alegreya-SemiBold.ttf'),
+    'alegreya-bold': require('./assets/fonts/Alegreya-Bold.ttf')
+  });
 
 export default function App() {
-  const [name, setName] = useState('William')
+  const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  return (
-    <View style={styles.container}>
-      <Text>Hello {name}</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  if(fontsLoaded){
+    return (
+      <Home />
+    );
+  } else {
+    return (
+      <AppLoading 
+        startAsync={getFonts}
+        onFinish={()=> setFontsLoaded(true)}
+        onError={console.warn}
+    />
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'pink',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

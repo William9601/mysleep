@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-export default function Home() {
+export default function Habits() {
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Home screen</Text>
+      <Text>Habits screen</Text>
     </View>
   )
 }
@@ -12,10 +12,5 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     padding: 24
-  },
-  titleText: {
-    fontFamily: 'alegreya-bold',
-    fontSize: 18
   }
-
 })
