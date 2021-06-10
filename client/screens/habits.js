@@ -61,7 +61,9 @@ export default function Habits({ navigation }) {
           renderItem={({ item }) => (
             <View>
               <TouchableOpacity onPress={() => removeHabit(item.habit) }>
-               <Text style={globalStyles.titleText}>{ item.habit }</Text>
+                <Card>
+                  <Text style={globalStyles.componentText}>{ item.habit }</Text>
+                </Card>
               </TouchableOpacity>
             </View>
           )}

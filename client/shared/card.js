@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, view } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export default function Card(props) {
   return (
-    <View style={StyleSheet.card}>
-      <View style={StyleSheet.cardContent}>
-        { PopStateEvent.children}
+    <View style={styles.card}>
+      <View style={styles.cardContent}>
+        { props.children }
       </View>
 
     </View>
@@ -14,9 +14,18 @@ export default function Card(props) {
 
 const styles = StyleSheet.create({
   card: {
-
+    borderRadius: 6,
+    elevation: 3,
+    backgroundColor: '#FCD29F',
+    shadowOffset: { width: 1, height: 1},
+    shadowColor: '#333',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginHorizontal: 4,
+    marginVertical: 6,
   }, 
   cardContent: {
-    
+    marginHorizontal: 18,
+    marginVertical: 10,
   }
 })

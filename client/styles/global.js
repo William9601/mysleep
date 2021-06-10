@@ -3,11 +3,20 @@ import { StyleSheet } from 'react-native';
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
+    padding: 4,
+    backgroundColor: '#A0DDFF',
   },
   titleText: {
+    textAlign: 'center',
     fontFamily: 'alegreya-bold',
-    fontSize: 18,
+    fontSize: 26,
+    color: '#333',
+    marginTop: 12,
+    marginBottom: 6,
+  },
+  componentText: {
+    fontFamily: 'alegreya-bold',
+    fontSize: 19,
     color: '#333',
   },
   paragraph: {
@@ -20,8 +29,8 @@ export const globalStyles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     borderRadius: 6,
-    marginTop: 3,
-    marginBottom: 3,
+    marginTop: 6,
+    marginBottom: 6,
   }
 
 })
