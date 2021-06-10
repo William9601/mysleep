@@ -4,6 +4,7 @@ import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
 import { MaterialIcons } from '@expo/vector-icons';
 import Card from '../shared/card';
+import FlatButton from '../shared/button';
 
 
 export default function Habits({ navigation }) {
@@ -50,7 +51,7 @@ export default function Habits({ navigation }) {
               onChangeText={props.handleChange('habit')}
               value={props.values.habit}
             />
-            <Button title='submit' color='#E6AACE' onPress={props.handleSubmit} />
+            <FlatButton text='submit' onPress={props.handleSubmit} />
           </View>
         )}
       </Formik>
@@ -70,7 +71,7 @@ export default function Habits({ navigation }) {
             
         />
       </View>
-          <Button title='Home' onPress={pressHandler}/>
+          <FlatButton text='Home' onPress={pressHandler} />
     </View>
     </TouchableWithoutFeedback>
   )
