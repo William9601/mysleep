@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Button, TextInput, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, FlatList, Button, TextInput, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
-import Card from '../shared/card'
+import { MaterialIcons } from '@expo/vector-icons';
+import Card from '../shared/card';
 
 
 export default function Habits({ navigation }) {
@@ -12,23 +13,33 @@ export default function Habits({ navigation }) {
     navigation.goBack()
   }
 
-  const addHabbit = (habit) => {
-    habit.date = Date.now(); // returns 1623333945959
+  // Adds habit
+  const addHabit = (habit) => {
+    habit.key = Date.now().toString(); // returns 1623333945959
     setHabits((currentHabits) => {
       return [habit, ...currentHabits]
     });
     console.log(habits)
   }
 
+  // Remove habit
+  const removeHabit = (habit) => {
+    setHabits(habits.filter((el) => {
+      return el.habit !== habit
+    }))
+
+  }
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Today's habits</Text>
+
       <Formik
         initialValues={{habit: ''}}
         onSubmit={(values, actions) => {
           actions.resetForm();
-          addHabbit(values)
+          addHabit(values)
         }}
       >
         {(props) => (
@@ -43,7 +54,21 @@ export default function Habits({ navigation }) {
           </View>
         )}
       </Formik>
-      <Button title='Home' onPress={pressHandler}/>
+
+      <View style={globalStyles.container}>
+        <FlatList
+          data={habits}
+          renderItem={({ item }) => (
+            <View>
+              <TouchableOpacity onPress={() => removeHabit(item.habit) }>
+               <Text style={globalStyles.titleText}>{ item.habit }</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+            
+        />
+      </View>
+          <Button title='Home' onPress={pressHandler}/>
     </View>
     </TouchableWithoutFeedback>
   )
