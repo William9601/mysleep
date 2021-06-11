@@ -1,6 +1,33 @@
 const Habit = require('./models')
 const data = require('./mockData')
 
+// const sleepType = data.bucket[0].dataset[0].point[0].value[0].intVal
+// const sleepStageStartTime = new Date((data.bucket[0].dataset[0].point[0].startTimeNanos) / 1000000)
+// const sleepStageEndTime = new Date((data.bucket[0].dataset[0].point[0].endTimeNanos) / 1000000)
+// const date = new Date(1623146400000)
+
+const sleepStages = data.bucket[0].dataset[0].point
+
+const totalSleepCalculate = (data) => {
+  let counter = 0
+  sleepStages.forEach((el) => counter += el.endTimeNanos-el.startTimeNanos)
+  return ((counter/1000000000)/60)/60
+}
+
+const totalDeepSleepCalculate = (data) => {
+  let counter = 0
+  sleepStages.forEach(function(el) {
+    if(el.value[0].intVal === 5) counter += el.endTimeNanos-el.startTimeNanos
+  })
+  return ((counter/1000000000)/60)/60
+}
+
+console.log(totalDeepSleepCalculate(data));
+console.log(totalSleepCalculate(data));
+
+//const deepSleep = sleepStages.reduce((acc, el) => acc + (el.endTimeNanos-el.startTimeNanos))
+
+
 // Get habits to render ordered by sleep quality
 const getHabits = async (req, res) => {
   try {
@@ -27,7 +54,7 @@ const addHabit = async (req, res) => {
 };
 
 
-console.log(new Date(Date.now()))
+// console.log(new Date(Date.now()))
 // if Date = 10:00 run the below function
 // Update sleep values the next day
 const updateHabit = async (req, res) => {
