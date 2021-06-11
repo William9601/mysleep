@@ -1,12 +1,14 @@
 const addHabit = async (data) => {
-  const res = await fetch('http://localhost:3006/habits', {
+  const res = await fetch('http://192.168.68.101:3006/habits', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },
     body: JSON.stringify(data),
+  }).catch(err=> {
+    console.log('error', err)
   })
-  console.log(res.json());
+  console.log(JSON.stringify(data));
   return res.json();
 }
 

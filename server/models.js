@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const habitSchema = new Schema({
-  name: String,
+  habit: String,
   date: {type: Date, default: Date.now},
   count: {type: Number, default: 0},
   deepSleepTotal: {type: Number, default: 0},

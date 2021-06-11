@@ -5,6 +5,7 @@ import { Formik } from 'formik'
 import { MaterialIcons } from '@expo/vector-icons'
 import Card from '../shared/card'
 import FlatButton from '../shared/button'
+import api from '../services/ApiService'
 
 export default function Habits ({ navigation }) {
   const [habits, setHabits] = useState([])
@@ -14,12 +15,19 @@ export default function Habits ({ navigation }) {
   }
 
   // Add habit
-  const addHabit = (habit) => {
-    habit.key = Date.now().toString() // returns 1623333945959
-    setHabits((currentHabits) => {
-      return [habit, ...currentHabits]
-    })
+  // const addHabit = (habit) => {
+  //   habit.key = Date.now().toString() 
+  //   setHabits((currentHabits) => {
+  //     return [habit, ...currentHabits]
+  //   })
+  //   console.log(habits)
+  // }
+
+  // Save habit to DB
+  const saveHabit = async (habit) => {
     console.log(habits)
+    const data = await api.addHabit(habit)
+    setHabits([...habits, data])
   }
 
   // Remove habit
@@ -38,7 +46,7 @@ export default function Habits ({ navigation }) {
           initialValues={{ habit: '' }}
           onSubmit={(values, actions) => {
             actions.resetForm()
-            addHabit(values)
+            saveHabit(values)
           }}
         >
           {(props) => (
