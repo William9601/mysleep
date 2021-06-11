@@ -14,7 +14,7 @@ export default function Habits({ navigation }) {
     navigation.goBack()
   }
 
-  // Adds habit
+  // Add habit
   const addHabit = (habit) => {
     habit.key = Date.now().toString(); // returns 1623333945959
     setHabits((currentHabits) => {
@@ -34,7 +34,7 @@ export default function Habits({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Today's habits</Text>
+      <Text style={globalStyles.titleText}>Today's Habits</Text>
 
       <Formik
         initialValues={{habit: ''}}
@@ -71,6 +71,7 @@ export default function Habits({ navigation }) {
             
         />
       </View>
+          <FlatButton text='Save' onPress={pressHandler} />
           <FlatButton text='Home' onPress={pressHandler} />
     </View>
     </TouchableWithoutFeedback>

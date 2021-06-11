@@ -13,7 +13,7 @@ export default function Header() {
     <View style={styles.header}>
       <MaterialIcons name='menu' size={28} onPress={openMenu} style={styles.icon} />
       <View>
-        <Text style={globalStyles.titleText}>My Sleep.</Text>
+        <Text style={globalStyles.mainTitleText}>My Sleep.</Text>
       </View>
     </View>
   )
@@ -28,11 +28,14 @@ const styles = StyleSheet.create({
   headerText: {
     fontWeight: 'bold',
     fontSize: 20,
-    color: '#333',
+    color: '#56564D',
     letterSpacing: 1,
   },
   icon: {
     position: 'absolute',
-    right: 16
+    right: 16,
+    marginTop: 12,
+    color: '#56564D',
+    
   }
 })

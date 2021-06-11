@@ -13,11 +13,20 @@ export const globalStyles = StyleSheet.create({
     color: '#FBEEEE',
     marginTop: 12,
     marginBottom: 6,
+    
+  },
+  mainTitleText: {
+    textAlign: 'center',
+    fontFamily: 'alegreya-bold',
+    fontSize: 26,
+    color: '#56564D',
+    marginTop: 12,
+    marginBottom: 6,
   },
   componentText: {
     fontFamily: 'alegreya-bold',
     fontSize: 19,
-    color: '#333',
+    color: '#56564D',
   },
   paragraph: {
     marginVertical: 8,
