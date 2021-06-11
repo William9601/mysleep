@@ -28,12 +28,12 @@ const screens = {
       title: 'My Sleep.'
     }
   },
-  Login: {
-    screen: Login,
-    navigationOptions: {
-      title: 'My Sleep.'
-    },
-  }
+  // Login: {
+  //   screen: Login,
+  //   navigationOptions: {
+  //     title: 'My Sleep.'
+  //   },
+  // }
 }
 
 const HomeStack = createStackNavigator(screens, {

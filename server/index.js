@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')()
 require('dotenv').config()
+const mongoose = require('mongoose')
 
 const app = express()
 const PORT = 3006
@@ -10,6 +11,22 @@ const client_secret = process.env.GOOGLE_SECRET // Gets the secret for Google OA
 app.use(cors)
 
 app.use(express.json())
+
+// DB connection
+mongoose.connect('mongodb://localhost:27017/MySleep', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+mongoose.connection.on('connected', ()=> {
+  console.log('Connected to database mongodb at 27017'); 
+});
+mongoose.connection.on('error', (err)=>{
+  if (err) {
+    console.log('Error in Database connection'); 
+  }
+});
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
