@@ -1,28 +1,4 @@
-// point determines each sleep stage
 
-// Data testing
-const sleepType = data.bucket[0].dataset[0].point[0].value[0].intVal
-const sleepStageStartTime = new Date((data.bucket[0].dataset[0].point[0].startTimeNanos) / 1000000)
-const sleepStageEndTime = new Date((data.bucket[0].dataset[0].point[0].endTimeNanos) / 1000000)
-const date = new Date(1623146400000)
-
-console.log(date);
-console.log(sleepStageStartTime);
-console.log(sleepStageEndTime);
-console.log(sleepType);
-
-let habits = {
-  coffee: {
-    count: 1,
-    deepSleep: 60,
-    tracked: false,
-  },
-  running: {
-    count: 2,
-    deepSleep: 120,
-    tracked: false,
-  }
-}
 
 const data = 
     {
@@ -400,5 +376,32 @@ const data =
       }
   ]
 }
+
+// point determines each sleep stage
+
+// Data testing
+
+// const sleepType = data.bucket[0].dataset[0].point[0].value[0].intVal
+// const sleepStageStartTime = new Date((data.bucket[0].dataset[0].point[0].startTimeNanos) / 1000000)
+// const sleepStageEndTime = new Date((data.bucket[0].dataset[0].point[0].endTimeNanos) / 1000000)
+// const date = new Date(1623146400000)
+
+// console.log(date);
+// console.log(sleepStageStartTime);
+// console.log(sleepStageEndTime);
+// console.log(sleepType);
+
+// let habits = {
+//   coffee: {
+//     count: 1,
+//     deepSleep: 60,
+//     tracked: false,
+//   },
+//   running: {
+//     count: 2,
+//     deepSleep: 120,
+//     tracked: false,
+//   }
+// }
 
 module.exports = data;
