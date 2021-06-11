@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 4,
-    backgroundColor: '#006ba6',
+    backgroundColor: '#006ba6'
   },
   titleText: {
     textAlign: 'center',
@@ -12,8 +12,8 @@ export const globalStyles = StyleSheet.create({
     fontSize: 26,
     color: '#FBEEEE',
     marginTop: 12,
-    marginBottom: 6,
-    
+    marginBottom: 6
+
   },
   mainTitleText: {
     textAlign: 'center',
@@ -21,16 +21,16 @@ export const globalStyles = StyleSheet.create({
     fontSize: 26,
     color: '#56564D',
     marginTop: 12,
-    marginBottom: 6,
+    marginBottom: 6
   },
   componentText: {
     fontFamily: 'alegreya-bold',
     fontSize: 19,
-    color: '#56564D',
+    color: '#56564D'
   },
   paragraph: {
     marginVertical: 8,
-    lineHeight: 20,
+    lineHeight: 20
   },
   input: {
     borderWidth: 1,
@@ -42,7 +42,7 @@ export const globalStyles = StyleSheet.create({
     marginBottom: 10,
     marginHorizontal: 9,
     fontFamily: 'alegreya-bold',
-    fontSize: 19,
+    fontSize: 19
   }
 
 })

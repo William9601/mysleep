@@ -1,12 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
-import { globalStyles } from '../styles/global';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { MaterialIcons } from '@expo/vector-icons'
+import { globalStyles } from '../styles/global'
 
-export default function Header() {
-
+export default function Header () {
   const openMenu = () => {
-    //navigation.openDrawer()
+    // navigation.openDrawer()
   }
 
   return (
@@ -23,19 +22,19 @@ const styles = StyleSheet.create({
   header: {
     width: '100%',
     height: '100%',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   headerText: {
     fontWeight: 'bold',
     fontSize: 20,
     color: '#56564D',
-    letterSpacing: 1,
+    letterSpacing: 1
   },
   icon: {
     position: 'absolute',
     right: 16,
     marginTop: 12,
-    color: '#56564D',
-    
+    color: '#56564D'
+
   }
 })
