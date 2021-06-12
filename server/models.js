@@ -7,6 +7,7 @@ const habitSchema = new Schema({
   date: { type: Date, default: Date.now },
   count: { type: Number, default: 0 },
   deepSleepTotal: { type: Number, default: 0 },
+  deepSleepAverage: { type: Number, default: 0 },
   track: { type: Boolean, default: false }
 })
 

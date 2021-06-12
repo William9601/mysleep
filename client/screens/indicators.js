@@ -6,6 +6,7 @@ export default function Indicators () {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Sleep Quality Indicators</Text>
+      <FlatButton text='Update indicators' onPress={pressHandlerHabits} />
     </View>
   )
 }

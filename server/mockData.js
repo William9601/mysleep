@@ -403,4 +403,46 @@ const data =
 //   }
 // }
 
-module.exports = data
+const habitsData = [
+  {
+    count: 5,
+    deepSleepTotal: 110,
+    deepSleepAverage: 27.5,
+    track: false,
+    _id: '60c3966b3025900b6848c3a4',
+    habit: 'Coffee',
+    date: '2021-06-11T16:59:23.159Z',
+    __v: 0
+  },
+  {
+    count: 4,
+    deepSleepTotal: 180,
+    deepSleepAverage: 45,
+    track: true,
+    _id: '60c460a6df1d562014dde476',
+    habit: 'Running',
+    date: '2021-06-12T07:22:14.253Z',
+    __v: 0
+  },
+  {
+    count: 8,
+    deepSleepTotal: 145,
+    deepSleepAverage: 18.125,
+    track: true,
+    _id: '60c4619e89e6202103439a09',
+    habit: 'Tea',
+    date: '2021-06-12T07:26:22.539Z',
+    __v: 0
+  },
+  {
+    count: 2,
+    deepSleepTotal: 120,
+    deepSleepAverage: 60,
+    track: false,
+    _id: '60c461ed89e6202103439a0a',
+    habit: 'Beer',
+    date: '2021-06-12T07:27:41.918Z',
+    __v: 0
+  }]
+
+module.exports = { data, habitsData }

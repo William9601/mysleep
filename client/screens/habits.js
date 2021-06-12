@@ -15,6 +15,7 @@ export default function Habits ({ navigation }) {
   }
 
   const pressHandlerAPI = async () => {
+    console.log('pressed')
     await api.getGoogleData({})
   }
 
