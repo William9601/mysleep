@@ -13,11 +13,12 @@ const addHabit = async (data) => {
 }
 
 const getGoogleData = async (token, data) => {
+  // Get the data from Google Api
   const res = await fetch('https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate', {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      Authorization: 'Bearer ya29.a0AfH6SMAE9k6fyEHyxESquvz8r1spgQ9eOMcIzNNadd1QyXxCvr3J-L-yGJeLKyNL38RSucj7bzcRcXk-QQ55gx-mzIZGoCI2cC1Y0ebJmUpDzfVC0-ztX51rlQvVd5uqxvXCO-SbqZdRwIp9kwBC6mc6yomo'
+      Authorization: 'Bearer ya29.a0AfH6SMAli0pQUXSshlDFKdsbOiuZlnj-3O3BnD2KpzOTLDrLpEiUE4hXPkKXeNu-qm90qcR3iXDKKOAFda5r385YiSPvOHi9Gxz0g62DzVLonKYgsAcpjnu8vpI20tWibCBu3l1EcqcRXXXSXkVykB5SJLfU2A'
     },
     body: JSON.stringify({
       aggregateBy: [
@@ -32,9 +33,10 @@ const getGoogleData = async (token, data) => {
     .catch(err => {
       console.log('error', err)
     })
-  console.log(res)
+    console.log(res);
   return res
 }
+
 
 export default {
   addHabit,

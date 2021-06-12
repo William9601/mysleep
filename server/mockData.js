@@ -392,13 +392,13 @@ const data =
 
 // let habits = {
 //   coffee: {
-//     count: 1,
-//     deepSleep: 60,
+//     count: 2,
+//     deepSleep: 120,
 //     tracked: false,
 //   },
 //   running: {
-//     count: 2,
-//     deepSleep: 120,
+//     count: 1,
+//     deepSleep: 60,
 //     tracked: false,
 //   }
 // }

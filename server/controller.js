@@ -8,6 +8,10 @@ const data = require('./mockData')
 
 const sleepStages = data.bucket[0].dataset[0].point
 
+const getData = async (req, res) => {
+  console.log('controler response', res.body);
+}
+
 // Calculates Total Sleep Hours
 const totalSleepCalculate = (data) => {
   let counter = 0
@@ -77,4 +81,4 @@ const updateHabit = async (req, res) => {
   // https://docs.mongodb.com/realm/mongodb/actions/collection.findOneAndUpdate/
 }
 
-module.exports = { addHabit, getHabits, updateHabit }
+module.exports = { addHabit, getHabits, updateHabit, getData, }

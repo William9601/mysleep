@@ -4,6 +4,6 @@ const controller = require('./controller')
 
 router.post('/habits', controller.addHabit)
 router.get('/habits', controller.getHabits)
-router.post('/habits-update', controller.updateHabit)
+router.post('/getData', controller.getData)
 
 module.exports = router
