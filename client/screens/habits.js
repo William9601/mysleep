@@ -20,7 +20,7 @@ export default function Habits ({ navigation }) {
 
   // Add habit
   // const addHabit = (habit) => {
-  //   habit.key = Date.now().toString() 
+  //   habit.key = Date.now().toString()
   //   setHabits((currentHabits) => {
   //     return [habit, ...currentHabits]
   //   })

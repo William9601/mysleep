@@ -19,16 +19,16 @@ app.use(router)
 mongoose.connect('mongodb://localhost:27017/MySleep', {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+})
 
-mongoose.connection.on('connected', ()=> {
-  console.log('Connected to database mongodb at 27017'); 
-});
-mongoose.connection.on('error', (err)=>{
+mongoose.connection.on('connected', () => {
+  console.log('Connected to database mongodb at 27017')
+})
+mongoose.connection.on('error', (err) => {
   if (err) {
-    console.log('Error in Database connection'); 
+    console.log('Error in Database connection')
   }
-});
+})
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

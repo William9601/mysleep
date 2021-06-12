@@ -32,7 +32,7 @@ const screens = {
     screen: Login,
     navigationOptions: {
       title: 'My Sleep.'
-    },
+    }
   }
 }
 

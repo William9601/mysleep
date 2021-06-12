@@ -11,7 +11,7 @@ export default function Home ({ navigation }) {
   const pressHandlerIndicators = () => {
     navigation.navigate('Indicators')
   }
-  
+
   const pressHandlerLogin = () => {
     navigation.navigate('Login')
   }
