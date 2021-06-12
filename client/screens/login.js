@@ -3,8 +3,6 @@ import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import { Button, TouchableOpacity, Text, View } from 'react-native';
 
-//https://docs.expo.io/guides/authentication/#google
-
 WebBrowser.maybeCompleteAuthSession();
 
 export default function App() {
@@ -29,3 +27,9 @@ export default function App() {
     />
   );
 }
+
+// Redirect URIs
+// http://localhost:19002/login/oauth2/code/google
+// https://localhost:19006
+// http://localhost:3006
+// https://auth.expo.io/@willva/client

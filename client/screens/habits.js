@@ -14,6 +14,10 @@ export default function Habits ({ navigation }) {
     navigation.goBack()
   }
 
+  const pressHandlerAPI = async () => {
+    await api.getGoogleData({})
+  }
+
   // Add habit
   // const addHabit = (habit) => {
   //   habit.key = Date.now().toString() 
@@ -27,6 +31,7 @@ export default function Habits ({ navigation }) {
   const saveHabit = async (habit) => {
     console.log(habits)
     const data = await api.addHabit(habit)
+    habit.key = data._id
     setHabits([...habits, data])
   }
 
@@ -76,7 +81,7 @@ export default function Habits ({ navigation }) {
             )}
           />
         </View>
-        <FlatButton text='Save' onPress={pressHandler} />
+        <FlatButton text='Save' onPress={pressHandlerAPI} />
         <FlatButton text='Home' onPress={pressHandler} />
       </View>
     </TouchableWithoutFeedback>

@@ -8,12 +8,14 @@ const data = require('./mockData')
 
 const sleepStages = data.bucket[0].dataset[0].point
 
+// Calculates Total Sleep Hours
 const totalSleepCalculate = (data) => {
   let counter = 0
   sleepStages.forEach((el) => counter += el.endTimeNanos-el.startTimeNanos)
   return ((counter/1000000000)/60)/60
 }
 
+// Calculates Total Deep Sleep Hours
 const totalDeepSleepCalculate = (data) => {
   let counter = 0
   sleepStages.forEach(function(el) {
@@ -21,11 +23,6 @@ const totalDeepSleepCalculate = (data) => {
   })
   return ((counter/1000000000)/60)/60
 }
-
-console.log(totalDeepSleepCalculate(data));
-console.log(totalSleepCalculate(data));
-
-//const deepSleep = sleepStages.reduce((acc, el) => acc + (el.endTimeNanos-el.startTimeNanos))
 
 
 // Get habits to render ordered by sleep quality
@@ -36,7 +33,7 @@ const getHabits = async (req, res) => {
   } catch (err) {
     res.status(500).send('Unable to find habits');
   }
-  // sort(res.count)...
+  // sort(res.deepSleepTotal/res.count)...
 };
 
 
@@ -45,6 +42,7 @@ const addHabit = async (req, res) => {
   try {
     const newHabit = new Habit ({
       habit: req.body.habit,
+      track: true,
     })
     newHabit.save()
     res.status(201).send(newHabit)
@@ -53,30 +51,31 @@ const addHabit = async (req, res) => {
   }
 };
 
+const deepSleepp = 0
+// This is triggered when app starts
+if(Date().split(' ')[4] === '10:00:00') {
+  deepSleep = totalDeepSleepCalculate(data)
+}
 
-// console.log(new Date(Date.now()))
-// if Date = 10:00 run the below function
-// Update sleep values the next day
+
+// Update sleep values the next day, if Date = 10:00 run the below function
 const updateHabit = async (req, res) => {
   const query = {"track": "true"}
   const update = {
-    "$set": {
-      "count": 1,
-      "deepSleepTotal": 1,
+    "$mul": {
+      "count": req.body.count +1,
+      "deepSleepTotal": req.body.deepSleepTotal,
       "track": false
     }
   }
 
-  return itemsCollection.findOneAndUpdate(query, update, options)
-  .then(updatedDocument => {
-    if(updatedDocument) {
-      console.log(`Successfully updated document: ${updatedDocument}.`)
-    } else {
-      console.log("No document matches the provided query.")
-    }
-    return updatedDocument
+  return itemsCollection.updateMany(query, update)
+  .then(result => {
+    const { matchedCount, modifiedCount } = result;
+    console.log(`Successfully matched ${matchedCount} and modified ${modifiedCount} items.`)
+    return result
   })
-  .catch(err => console.error(`Failed to find and update document: ${err}`))
+  .catch(err => console.error(`Failed to update items: ${err}`))
   
   // https://docs.mongodb.com/realm/mongodb/actions/collection.findOneAndUpdate/
 }
