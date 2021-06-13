@@ -5,7 +5,8 @@ import { Formik } from 'formik'
 import { MaterialIcons } from '@expo/vector-icons'
 import Card from '../shared/card'
 import FlatButton from '../shared/button'
-import api from '../services/ApiService'
+import ApiService from '../services/ApiService'
+import ClickService from '../services/ClickService'
 
 export default function Habits ({ navigation }) {
   const [habits, setHabits] = useState([])
@@ -16,7 +17,7 @@ export default function Habits ({ navigation }) {
 
   const pressHandlerAPI = async () => {
     console.log('pressed')
-    await api.getGoogleData({})
+    await ApiService.getGoogleData({})
   }
 
   // Add habit
@@ -31,7 +32,7 @@ export default function Habits ({ navigation }) {
   // Save habit to DB
   const saveHabit = async (habit) => {
     console.log(habits)
-    const data = await api.addHabit(habit)
+    const data = await ClickService.addHabit(habit)
     habit.key = data._id
     setHabits([...habits, data])
   }

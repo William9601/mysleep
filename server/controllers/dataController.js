@@ -24,7 +24,7 @@ let updateDbData = function(data) {
     if (el.track === true) {
        el.deepSleepTotal += totalDeepSleepCalculate(data)
        el.track = false
-       el.counter +=1
+       el.count +=1
      }
   })
  }

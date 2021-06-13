@@ -1,19 +1,5 @@
-const addHabit = async (data) => {
-  const res = await fetch('http://192.168.68.100:3006/habits', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).catch(err => {
-    console.log('error', err)
-  })
-  console.log(JSON.stringify(data))
-  return res.json()
-}
-
+// ------- Get sleep stage data from Google API
 const getGoogleData = async () => {
-  // Get the data from Google Api
   const res = await fetch('https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate', {
     method: 'POST',
     headers: {
@@ -34,10 +20,10 @@ const getGoogleData = async () => {
     console.log('error', err)
   })
   sendData(res)
-  //console.log(res);
   return res
 }
 
+// ------- Send sleep stage data from Google API to back-end
 const sendData = async (data) => {
   console.log(data)
   const res = await fetch('http://192.168.68.100:3006/getData', {
@@ -52,14 +38,7 @@ const sendData = async (data) => {
   return res.json()
 }
 
-const getSortedData = async () => {
-  const response = await fetch()
-  return await response.json();
-}
-
 
 export default {
-  addHabit,
   getGoogleData,
-  getSortedData
 }
