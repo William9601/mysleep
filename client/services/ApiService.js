@@ -2,7 +2,7 @@ const bearer_token = require('../dotFile')
 
 const startTime = 1623232800000
 const endTime = 1623146400000
-
+console.log(bearer_token.GOOGLE_BEARER_TOKEN)
 
 // ------- Get sleep stage data from Google API
 const getGoogleData = async () => {
@@ -10,7 +10,7 @@ const getGoogleData = async () => {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      Authorization: 'Bearer ya29.a0AfH6SMAm_L81KqrLZpMvUcJPLu91enjtzeYTiSz1IdJkvnKjV2hDaUQdbJ01k7upDBBmLAJzG37C_SWxLP9u8iudJsxnvM_qv_wWYCKJMkfw11wO3cnYT9H6RS0ykCi49owNfOXIt_YNilhqXvQ5hZr8nIpf'
+      Authorization: bearer_token.GOOGLE_BEARER_TOKEN
     },
     body: JSON.stringify({
       aggregateBy: [
@@ -29,7 +29,8 @@ const getGoogleData = async () => {
   return res
 }
 
-// ------- Send sleep stage data from Google API to back-end   expert: 'http://192.168.1.116:3006/getData'  / cazador: 'http://192.168.68.100:3006/getData'
+// ------- Send sleep stage data from Google API to back-end   
+// expert: 'http://192.168.1.116:3006/getData' / cazador: 'http://192.168.68.100:3006/getData'
 const sendData = async (data) => {
   
   const res = await fetch('http://192.168.1.116:3006/getData', {

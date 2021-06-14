@@ -9,7 +9,7 @@ const dbModel = require('../models/databaseModels')
 // 1- Get the data from API (pending) req.body.bucket
 const getData = async (req, res) => {
   let data = req.body
-  console.log(data);
+  console.log('data', data);
   let sleepStages = req.body.bucket[0].dataset[0].point
   let totalSleep = model.totalSleepCalculate(data, sleepStages)
   let totalDeepSleep = model.totalDeepSleepCalculate(data, sleepStages)
