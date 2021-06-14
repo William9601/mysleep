@@ -1,4 +1,3 @@
-require('dotenv').config()
 
 const client_id = process.env.GOOGLE_BEARER_TOKEN 
 
