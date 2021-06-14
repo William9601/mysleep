@@ -8,7 +8,7 @@ WebBrowser.maybeCompleteAuthSession()
 
 export default function App () {
   const [request, response, promptAsync] = Google.useAuthRequest({
-    expoClientId: '791447362634-d5cqgeb6n9vgis56d0hn42t4cc1f9q02.apps.googleusercontent.com',
+    expoClientId: '791447362634-d5cqgeb6n9vgis56d0hn42t4cc1f9q02.apps.googleusercontent.com'
   })
 
   React.useEffect(() => {
@@ -16,7 +16,7 @@ export default function App () {
       const { authentication } = response
     }
   }, [response])
-  //console.log('auth',response.authentication['accessToken']);
+  // console.log('auth',response.authentication['accessToken']);
 
   return (
     <Button

@@ -18,18 +18,18 @@ export default function Indicators () {
       </Card>
     </View>
   )
-  
+
   const renderItem = ({ item }) => <Item habit={item.habit} />
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Sleep Quality Indicators</Text>
-        <View>
+      <View>
         <SafeAreaView>
-          <FlatList 
-            data={habitList} 
-            keyExtractor={item => item._id} 
+          <FlatList
+            data={habitList}
+            keyExtractor={item => item._id}
             renderItem={renderItem}
-            />
+          />
         </SafeAreaView>
       </View>
     </View>

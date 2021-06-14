@@ -1,5 +1,5 @@
 const Habit = require('../models')
-const {data, habitsData} = require('../mockData')
+const { data, habitsData } = require('../mockData')
 
 // 1 --------------- Calculates Total Sleep & DeepSleep Hours wigh Google data
 const sleepStages = data.bucket[0].dataset[0].point
@@ -19,23 +19,23 @@ const totalDeepSleepCalculate = (data) => {
 }
 
 // 2 --------------- Adds deepSleep hrs to database (if track = true)
-let updateDbData = function(data) {
+const updateDbData = function (data) {
   habitsData.forEach(el => {
     if (el.track === true) {
-       el.deepSleepTotal += totalDeepSleepCalculate(data)
-       el.track = false
-       el.count +=1
-     }
+      el.deepSleepTotal += totalDeepSleepCalculate(data)
+      el.track = false
+      el.count += 1
+    }
   })
- }
+}
 
 // 3 --------------- Sort Habits data
-let habitsAverage = habitsData.forEach(function (el) {
-   el.deepSleepAverage = (el.deepSleepTotal / el.count)
+const habitsAverage = habitsData.forEach(function (el) {
+  el.deepSleepAverage = (el.deepSleepTotal / el.count)
 })
 
-let sortedHabits = habitsData.sort(function (a, b) {
-  let sorted = a.deepSleepAverage - b.deepSleepAverage
+const sortedHabits = habitsData.sort(function (a, b) {
+  const sorted = a.deepSleepAverage - b.deepSleepAverage
   return sorted
 })
 
@@ -51,7 +51,6 @@ const testData = function (data) {
 const finalData = async (req, res) => {
   try {
     const orderedData = await testData()
-    //console.log(orderedData);
     res.status(200).send(orderedData)
   } catch (err) {
     res.status(500).send('Unable to find habits')

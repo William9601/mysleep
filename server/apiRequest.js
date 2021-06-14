@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('node-fetch')
 
 const getGoogleData = async (token, data) => {
   // Get the data from Google Api
@@ -21,7 +21,7 @@ const getGoogleData = async (token, data) => {
     .catch(err => {
       console.log('error', err)
     })
-    console.log(res);
+  console.log(res)
   return res
 }
 

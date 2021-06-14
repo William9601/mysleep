@@ -13,10 +13,10 @@ const addHabit = async (data) => {
   return res.json()
 }
 
-// --------- Get the sorted list of habits 
+// --------- Get the sorted list of habits
 const getSortedData = async () => {
   const response = await fetch('http://192.168.68.100:3006/sortedData')
-  return await response.json();
+  return await response.json()
 }
 
 export default {

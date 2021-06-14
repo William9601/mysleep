@@ -46,7 +46,7 @@ const HomeStack = createStackNavigator(screens, {
       color: '#56564D',
       marginTop: 12,
       marginBottom: 10
-  }
+    }
   }
 })
 
