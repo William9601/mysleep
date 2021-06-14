@@ -1,7 +1,7 @@
 const Habit = require('../models')
 const {data, habitsData} = require('../mockData')
 
-// 1 --------------- Calculates Total Sleep & DeepSleep Hours
+// 1 --------------- Calculates Total Sleep & DeepSleep Hours wigh Google data
 const sleepStages = data.bucket[0].dataset[0].point
 
 const totalSleepCalculate = (data) => {
@@ -18,7 +18,7 @@ const totalDeepSleepCalculate = (data) => {
   return ((counter / 1000000000) / 60) / 60
 }
 
-// 2 --------------- Adds deepSleep hrs to database
+// 2 --------------- Adds deepSleep hrs to database (if track = true)
 let updateDbData = function(data) {
   habitsData.forEach(el => {
     if (el.track === true) {
@@ -51,11 +51,16 @@ const testData = function (data) {
 const finalData = async (req, res) => {
   try {
     const orderedData = await testData()
-    console.log(orderedData);
+    //console.log(orderedData);
     res.status(200).send(orderedData)
   } catch (err) {
     res.status(500).send('Unable to find habits')
   }
 }
+
+// const sleepType = data.bucket[0].dataset[0].point[0].value[0].intVal
+// const sleepStageStartTime = new Date((data.bucket[0].dataset[0].point[0].startTimeNanos) / 1000000)
+// const sleepStageEndTime = new Date((data.bucket[0].dataset[0].point[0].endTimeNanos) / 1000000)
+// const date = new Date(1623146400000)
 
 module.exports = { finalData }
