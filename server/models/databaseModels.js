@@ -3,7 +3,7 @@ const Habit = require('../models')
 exports.updateHabit = async (totalDeepSleep) => {
   const query = { track: true }
   const update = {
-    $inc: { deepSleepTotal: +totalDeepSleep, count: +1, },
+    $inc: { deepSleepTotal: +totalDeepSleep, },
     track: false
   }
   return Habit.updateMany(query, update)

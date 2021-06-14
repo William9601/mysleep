@@ -22,10 +22,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 2,
     marginHorizontal: 40,
-    marginVertical: 6
+    marginVertical: 6,
   },
+
   cardContent: {
     marginHorizontal: 18,
-    marginVertical: 8
+    marginVertical: 8,  
   }
 })

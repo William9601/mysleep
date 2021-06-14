@@ -19,6 +19,7 @@ export default function Habits ({ navigation }) {
     console.log('pressed')
     await ApiService.getGoogleData({})
   }
+  
 
   // Add habit
   // const addHabit = (habit) => {
@@ -31,10 +32,10 @@ export default function Habits ({ navigation }) {
 
   // Save habit to DB
   const saveHabit = async (habit) => {
-    console.log(habits)
     const data = await ClickService.addHabit(habit)
-    habit.key = data._id
+    //habit.key = data._id
     setHabits([...habits, data])
+    console.log(habits)
   }
 
   // Remove habit
@@ -72,6 +73,7 @@ export default function Habits ({ navigation }) {
         <View style={globalStyles.container}>
           <FlatList
             data={habits}
+            keyExtractor={item => item._id}
             renderItem={({ item }) => (
               <View>
                 <TouchableOpacity onPress={() => removeHabit(item.habit)}>

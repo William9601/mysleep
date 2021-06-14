@@ -21,15 +21,15 @@ export default function Indicators () {
     return sorted
   })
   
-  const Item = ({ habit }) => (
+  const Item = ({ habit, deepSleepAverage }) => (
     <View>
       <Card>
-        <Text style={globalStyles.componentText}>{habit}</Text>
+        <Text style={globalStyles.componentText}>{habit}, {deepSleepAverage}</Text>
       </Card>
     </View>
   )
 
-  const renderItem = ({ item }) => <Item habit={item.habit} />
+  const renderItem = ({ item }) => <Item habit={item.habit} deepSleepAverage={item.deepSleepAverage} />
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Sleep Quality Indicators</Text>

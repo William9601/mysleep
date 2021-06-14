@@ -31,7 +31,6 @@ const getGoogleData = async () => {
 // ------- Send sleep stage data from Google API to back-end   
 // expert: 'http://192.168.1.116:3006/getData' / cazador: 'http://192.168.68.100:3006/getData'
 const sendData = async (data) => {
-  
   const res = await fetch('http://192.168.1.116:3006/getData', {
     method: 'POST',
     headers: {

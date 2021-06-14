@@ -9,7 +9,6 @@ const addHabit = async (data) => {
   }).catch(err => {
     console.log('error', err)
   })
-  console.log(JSON.stringify(data))
   return res.json()
 }
 
@@ -22,7 +21,6 @@ const getSortedData = async () => {
 // --------- Get the data from DB to update indicators
 const getData = async () => {
   const response = await fetch('http://192.168.1.116:3006/getList')
-  console.log('response', response);
   return await response.json()
 }
 

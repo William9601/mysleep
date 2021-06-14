@@ -22,13 +22,14 @@ export const globalStyles = StyleSheet.create({
     color: '#56564D',
     marginTop: 12,
     marginBottom: 10
-
   },
+
   componentText: {
     fontFamily: 'alegreya-bold',
     fontSize: 20,
-    color: '#56564D'
+    color: '#56564D',
   },
+
   paragraph: {
     marginVertical: 8,
     lineHeight: 20

@@ -3,8 +3,6 @@ const model = require('../models/sleepDataModel')
 const dbModel = require('../models/databaseModels')
 //const { data } = require('../mockData')
 
-
-
 // ------------ GOOGLE DATA FUNCTIONS
 // 1- Get the data from API (pending) req.body.bucket
 const getData = async (req, res) => {
@@ -18,9 +16,6 @@ const getData = async (req, res) => {
 const getList = async (req, res) => {
   try {
     const habitList = await Habit.find()
-    // habitsList.forEach(el => {
-    //   el.deepSleepAverage = (el.deepSleepTotal/el.count)
-    // })
     res.status(200).send(habitList)
   } catch (err) {
     res.status(500).send('Unable to find habits')
@@ -30,11 +25,12 @@ const getList = async (req, res) => {
 
 // ------------ DB DATA FUNCTIONS
 // Save habits to the DB (COMPLETE)
-const addHabit = async (req, res) => {
+const addNewHabit = async (req, res) => {
   try {
     const newHabit = new Habit({
       habit: req.body.habit,
-      track: true
+      track: true,
+      count: 1, 
     })
     newHabit.save()
     res.status(201).send(newHabit)
@@ -43,13 +39,40 @@ const addHabit = async (req, res) => {
   }
 }
 
-const finalData = async (req, res) => {
+const addToExistingHabit = async (existingHabit) => {
+  const query = { habit: existingHabit }
+  const update = {
+    $inc: { count: +1, },
+    track: true
+  } 
+  return Habit.updateMany(query, update)
+  .then(result => {
+    const { matchedCount, modifiedCount } = result
+    console.log(`Successfully matched ${matchedCount} and modified ${modifiedCount} items.`)
+    return result
+  })
+  .catch(err => console.error(`Failed to update items: ${err}`))
+}
+
+//if habitList.includes(req.body.habit)
+
+const addHabit = async (req, res) => {
   try {
-    const orderedData = await testData()
-    res.status(200).send(orderedData)
+    const habitList = await Habit.find()
+    const habitListMap = habitList.map(el => el.habit)
+    console.log(habitListMap);
+       if(habitListMap.includes(req.body.habit)) {
+         console.log('Exists');
+          addToExistingHabit(req.body.habit)
+       } else {
+         console.log('Doesnt exist');
+         addNewHabit(req, res)
+        }
   } catch (err) {
-    res.status(500).send('Unable to find habits')
+    console.log(err)
   }
 }
+
+
 
 module.exports = { addHabit, getData, getList }
