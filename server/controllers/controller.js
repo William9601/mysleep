@@ -7,7 +7,7 @@ const sleepStages = data.bucket[0].dataset[0].point
 
 // 1- Get the data from API (pending)
 const getData = async (req, res) => {
-  console.log('controler response', res)
+  console.log('controler response', req.body.dataset)
 }
 
 // Calculates Total Sleep Hours using getData
@@ -56,7 +56,7 @@ const addHabit = async (req, res) => {
 const updateHabit = async () => {
   const query = { track: true }
   const update = {
-    $inc: { deepSleepTotal: +totalDeepSleepCalculate(data), count: +1 },
+    $inc: { deepSleepTotal: +totalDeepSleepCalculate(data), count: +1, },
     track: false
   }
 
