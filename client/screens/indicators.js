@@ -8,9 +8,19 @@ export default function Indicators () {
   const [habitList, setHabitList] = useState([])
 
   useEffect(() => {
-    ClickService.getSortedData().then(habits => setHabitList(habits))
+    ClickService.getData().then(habits => setHabitList(habits))
   }, [])
 
+  const list = habitList.map(el => {
+    el.deepSleepAverage = (el.deepSleepTotal / el.count)
+    return el
+  })
+  
+  const sortedList = list.sort(function (a, b) {
+    const sorted = a.deepSleepAverage - b.deepSleepAverage
+    return sorted
+  })
+  
   const Item = ({ habit }) => (
     <View>
       <Card>
@@ -26,7 +36,7 @@ export default function Indicators () {
       <View>
         <SafeAreaView>
           <FlatList
-            data={habitList}
+            data={sortedList}
             keyExtractor={item => item._id}
             renderItem={renderItem}
           />

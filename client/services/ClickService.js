@@ -19,7 +19,14 @@ const getSortedData = async () => {
   return await response.json()
 }
 
+// --------- Get the data from DB to update indicators
+const getData = async () => {
+  const response = await fetch('http://192.168.1.116:3006/getList')
+  console.log('response', response);
+  return await response.json()
+}
+
 export default {
   addHabit,
-  getSortedData
+  getData
 }

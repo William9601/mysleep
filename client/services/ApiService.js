@@ -2,7 +2,6 @@ const bearer_token = require('../dotFile')
 
 const startTime = 1623232800000
 const endTime = 1623146400000
-console.log(bearer_token.GOOGLE_BEARER_TOKEN)
 
 // ------- Get sleep stage data from Google API
 const getGoogleData = async () => {

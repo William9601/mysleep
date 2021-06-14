@@ -9,11 +9,22 @@ const dbModel = require('../models/databaseModels')
 // 1- Get the data from API (pending) req.body.bucket
 const getData = async (req, res) => {
   let data = req.body
-  console.log('data', data);
   let sleepStages = req.body.bucket[0].dataset[0].point
   let totalSleep = model.totalSleepCalculate(data, sleepStages)
   let totalDeepSleep = model.totalDeepSleepCalculate(data, sleepStages)
   dbModel.updateHabit(totalDeepSleep)
+}
+
+const getList = async (req, res) => {
+  try {
+    const habitList = await Habit.find()
+    // habitsList.forEach(el => {
+    //   el.deepSleepAverage = (el.deepSleepTotal/el.count)
+    // })
+    res.status(200).send(habitList)
+  } catch (err) {
+    res.status(500).send('Unable to find habits')
+  }
 }
 
 
@@ -41,4 +52,4 @@ const finalData = async (req, res) => {
   }
 }
 
-module.exports = { addHabit, getData }
+module.exports = { addHabit, getData, getList }
