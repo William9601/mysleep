@@ -2,14 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, FlatList, SafeAreaView } from 'react-native'
 import { globalStyles } from '../styles/global'
 import ClickService from '../services/ClickService'
+import ApiService from '../services/ApiService'
 import Card from '../shared/card'
+import FlatButton from '../shared/button'
+
 
 export default function Indicators () {
   const [habitList, setHabitList] = useState([])
 
-  useEffect(() => {
-    ClickService.getData().then(habits => setHabitList(habits))
-  }, [])
+  const pressHandlerAPI = () => {
+     ApiService.getGoogleData({})
+    .then(() => ClickService.getData())
+    .then(habits => setHabitList(habits))
+}
+
+useEffect(() => {
+  ClickService.getData().then(habits => setHabitList(habits))
+}, [])
 
   const list = habitList.map(el => {
     el.deepSleepAverage = (el.deepSleepTotal / el.count)
@@ -33,6 +42,7 @@ export default function Indicators () {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Sleep Quality Indicators</Text>
+      <FlatButton text='Update' onPress={pressHandlerAPI} />
       <View>
         <SafeAreaView>
           <FlatList
