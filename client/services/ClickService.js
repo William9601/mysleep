@@ -12,12 +12,6 @@ const addHabit = async (data) => {
   return res.json()
 }
 
-// --------- Get the sorted list of habits
-const getSortedData = async () => {
-  const response = await fetch('http://192.168.1.116:3006/sortedData')
-  return await response.json()
-}
-
 // --------- Get the data from DB to update indicators
 const getData = async () => {
   const response = await fetch('http://192.168.1.116:3006/getList')

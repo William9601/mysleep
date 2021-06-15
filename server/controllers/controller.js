@@ -24,7 +24,7 @@ const getList = async (req, res) => {
 
 
 // ------------ DB DATA FUNCTIONS
-// Save habits to the DB (COMPLETE)
+// Save habit to the DB if it is a new habit
 const addNewHabit = async (req, res) => {
   try {
     const newHabit = new Habit({
@@ -39,6 +39,7 @@ const addNewHabit = async (req, res) => {
   }
 }
 
+// Update existing habit
 const addToExistingHabit = async (existingHabit) => {
   const query = { habit: existingHabit }
   const update = {
@@ -54,7 +55,6 @@ const addToExistingHabit = async (existingHabit) => {
   .catch(err => console.error(`Failed to update items: ${err}`))
 }
 
-//if habitList.includes(req.body.habit)
 
 const addHabit = async (req, res) => {
   try {
@@ -64,6 +64,7 @@ const addHabit = async (req, res) => {
        if(habitListMap.includes(req.body.habit)) {
          console.log('Exists');
           addToExistingHabit(req.body.habit)
+          res.status(201).send(req.body)
        } else {
          console.log('Doesnt exist');
          addNewHabit(req, res)

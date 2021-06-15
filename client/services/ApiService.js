@@ -1,7 +1,11 @@
 const bearer_token = require('../dotFile')
 
-const startTime = 1623232800000
-const endTime = 1623146400000
+// const endTime = 1623232800000
+// const startTime = 1623146400000
+
+let endTime = Date.now()
+let endDate = new Date(endTime)
+let startTime = endDate.setDate(endDate.getDate()-1)
 
 // ------- Get sleep stage data from Google API
 const getGoogleData = async () => {
@@ -17,14 +21,15 @@ const getGoogleData = async () => {
           dataTypeName: 'com.google.sleep.segment'
         }
       ],
-      endTimeMillis: startTime,
-      startTimeMillis: endTime
+      endTimeMillis: endTime,
+      startTimeMillis: startTime
     })
   }).then(res => res.json())
     .catch(err => {
       console.log('error', err)
     })
   sendData(res)
+  console.log(res)
   return res
 }
 

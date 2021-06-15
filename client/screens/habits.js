@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, FlatList, Button, TextInput, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, TextInput, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native'
 import { globalStyles } from '../styles/global'
 import { Formik } from 'formik'
-import { MaterialIcons } from '@expo/vector-icons'
 import Card from '../shared/card'
 import FlatButton from '../shared/button'
 import ApiService from '../services/ApiService'
@@ -16,26 +15,13 @@ export default function Habits ({ navigation }) {
   }
 
   const pressHandlerAPI = async () => {
-    console.log('pressed')
     await ApiService.getGoogleData({})
   }
   
-
-  // Add habit
-  // const addHabit = (habit) => {
-  //   habit.key = Date.now().toString()
-  //   setHabits((currentHabits) => {
-  //     return [habit, ...currentHabits]
-  //   })
-  //   console.log(habits)
-  // }
-
   // Save habit to DB
   const saveHabit = async (habit) => {
     const data = await ClickService.addHabit(habit)
-    //habit.key = data._id
     setHabits([...habits, data])
-    console.log(habits)
   }
 
   // Remove habit
