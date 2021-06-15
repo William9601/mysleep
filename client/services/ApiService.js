@@ -29,7 +29,6 @@ const getGoogleData = async () => {
       console.log('error', err)
     })
   sendData(res)
-  console.log(res)
   return res
 }
 

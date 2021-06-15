@@ -9,7 +9,7 @@ import ClickService from '../services/ClickService'
 
 export default function Habits ({ navigation }) {
   const [habits, setHabits] = useState([])
-
+  console.log('habits state', habits)
   const pressHandler = () => {
     navigation.goBack()
   }
@@ -22,6 +22,7 @@ export default function Habits ({ navigation }) {
   const saveHabit = async (habit) => {
     const data = await ClickService.addHabit(habit)
     setHabits([...habits, data])
+    console.log('saveHabit', data);
   }
 
   // Remove habit
