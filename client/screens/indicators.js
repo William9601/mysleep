@@ -21,7 +21,7 @@ useEffect(() => {
 }, [])
 
   const list = habitList.map(el => {
-    el.deepSleepAverage = (el.deepSleepTotal / el.count)
+    el.deepSleepAverage = (el.deepSleepTotal / el.count).toFixed(2)
     return el
   })
   
@@ -33,7 +33,7 @@ useEffect(() => {
   const Item = ({ habit, deepSleepAverage }) => (
     <View>
       <Card>
-        <Text style={globalStyles.componentText}>{habit}, {deepSleepAverage}</Text>
+        <Text style={globalStyles.componentText}>{habit} __ {deepSleepAverage}h</Text>
       </Card>
     </View>
   )
