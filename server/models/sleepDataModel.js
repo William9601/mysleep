@@ -1,4 +1,3 @@
-
 // Calculates Total Sleep Hours using getData
 exports.totalSleepCalculate = (data, sleepStages) => {
   let count = 0

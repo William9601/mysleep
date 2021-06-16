@@ -445,4 +445,95 @@ const habitsData = [
     __v: 0
   }]
 
+
+
+
+  const test = [
+     {
+      "__v": 0,
+      "_id": "60c8f752ae84dbfbded08c9c",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.130Z",
+      "deepSleepAverage": "0.82",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Coffee",
+      "track": false,
+    },
+     {
+      "__v": 0,
+      "_id": "60c8f754ae84dbfbded08c9f",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.131Z",
+      "deepSleepAverage": "0.97",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Chocolate",
+      "track": false,
+    },
+     {
+      "__v": 0,
+      "_id": "60c8f757ae84dbfbded08ca4",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.131Z",
+      "deepSleepAverage": "1.02",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Salad",
+      "track": false,
+    },
+     {
+      "__v": 0,
+      "_id": "60c8f75aae84dbfbded08ca7",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.131Z",
+      "deepSleepAverage": "1.13",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Ice cream",
+      "track": false,
+    },
+    {
+      "__v": 0,
+      "_id": "60c8f75aae84dbfbded08ca7",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.131Z",
+      "deepSleepAverage": "1.25",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Beer",
+      "track": false,
+    },
+    {
+      "__v": 0,
+      "_id": "60c8f75aae84dbfbded08ca7",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.131Z",
+      "deepSleepAverage": "1.27",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Netflix",
+      "track": false,
+    },
+    {
+      "__v": 0,
+      "_id": "60c8f75aae84dbfbded08ca7",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.131Z",
+      "deepSleepAverage": "1.82",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Meditating",
+      "track": false,
+    },
+    {
+      "__v": 0,
+      "_id": "60c8f75aae84dbfbded08ca7",
+      "count": 1,
+      "date": "2021-06-15T18:59:44.131Z",
+      "deepSleepAverage": "1.85",
+      "deepSleepTotal": 1.9666666666666666,
+      "habit": "Reading",
+      "track": false,
+    },
+
+
+  ]
+  
+
+
+
 module.exports = { data, habitsData }

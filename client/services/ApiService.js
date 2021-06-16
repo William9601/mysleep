@@ -8,7 +8,7 @@ let endDate = new Date(endTime)
 let startTime = endDate.setDate(endDate.getDate()-1)
 
 // ------- Get sleep stage data from Google API
-const getGoogleData = async () => {
+const getGoogleData = async (token) => {
   const res = await fetch('https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate', {
     method: 'POST',
     headers: {
@@ -29,6 +29,7 @@ const getGoogleData = async () => {
       console.log('error', err)
     })
   sendData(res)
+  //console.log(res);
   return res
 }
 

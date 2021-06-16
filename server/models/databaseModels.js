@@ -1,5 +1,6 @@
 const Habit = require('../models') 
 
+// If track = true, it adds the deep sleep to it's existing count on the DB, then changes track to false.
 exports.updateHabit = async (totalDeepSleep) => {
   const query = { track: true }
   const update = {
@@ -14,32 +15,4 @@ exports.updateHabit = async (totalDeepSleep) => {
     })
     .catch(err => console.error(`Failed to update items: ${err}`))
 }
-
-// const calculateAverage = async () => {
-//   try {
-//     const habits = await Habit.find()
-//     habits.forEach(el => {
-//       if(el.track === false) {
-//         habits.deepSleepAverage += el.deepSleepTotal/el.count
-//       }
-//     })
-//   } catch (err) {
-//     res.status(500).send('Unable to find habits')
-//   }
-// }
-
-// const updateHabitAverage = async () => {
-//   const query = { track: false }
-//   const update = {
-//     $inc: { deepSleepAverage: +(deepSleepTotal/count) },
-//     track: false
-//   }
-//   return Habit.updateMany(query, update)
-//     .then(result => {
-//       const { matchedCount, modifiedCount } = result
-//       console.log(`Successfully updated Average ${matchedCount} and modified ${modifiedCount} items.`)
-//       return result
-//     })
-//     .catch(err => console.error(`Failed to update items: ${err}`))
-// }
 

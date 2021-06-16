@@ -19,6 +19,7 @@ export default function Home ({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Last night's sleep: 8h 22m</Text>
+      {console.log('screens/home console log', navigation.state.params)}
       <Text style={globalStyles.titleText}>Total deep sleep: 2h 14m</Text>
       <FlatButton text='Add Habits' onPress={pressHandlerHabits} />
       <FlatButton text='Check indicators' onPress={pressHandlerIndicators} />

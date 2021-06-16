@@ -30,10 +30,11 @@ useEffect(() => {
     return sorted
   })
   
+  
   const Item = ({ habit, deepSleepAverage }) => (
     <View>
       <Card>
-        <Text style={globalStyles.componentText}>{habit} __ {deepSleepAverage}h</Text>
+        <Text style={globalStyles.componentText}>{habit} __ {deepSleepAverage}hrs</Text>
       </Card>
     </View>
   )
