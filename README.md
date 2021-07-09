@@ -1,20 +1,32 @@
-# mysleep
-> To start the app, first, in the server folder, 'npm nodemon', then in the client folder 'npm start'
-> Go to google auth playground, choose the fitness API and sleep read data, then retrieve the bearer token. Enter that token in the dotFile.js file,  'Bearer ya29....', make sure you write 'Bearer' in front. The link for the playground is: https://developers.google.com/oauthplayground/
-> Make sure the wifi IP address in the client/services files match the wifi address you are connected to
-> The mongodb DB is My Sleep
-> In the .env file I have more private instructions
+# My Sleep
 
-> To do. Implement Google login
-> Check if there's already a token in local storage. If true then the user is authenticated and they can use the app.
-> If false then read the params and get the token from there
-> In screens/home line 22, I console log the params that are sent whenever I click Login on the app.
-> The token from these params needs to be sent to the API request, it can only be used once
-> I access the params from home because that's where I can use the router
+My Sleep is an app designed to help users identify what habits are causing worse or better sleep. It does so by getting sleep data from Google Fit and relating the hours of deep sleep to the user's inputted habits.
 
-MongoDB
-> 1- Type 'mongo' in terminal
-> 2- Type 'show dbs'
-> 3- 'use MySleep'
-> 4- 'db.habits.find()' to see the habits
-> 5- 'db.habits.drop()' to delete all habits
+Screenshots
+
+![App Images](/public/images/App-Images.png)
+
+Getting started
+
+1. Clone the repo `<https://github.com/William9601/mysleep`>
+
+2. Install dependencies `<npm install>`
+
+3. In the /server folder, run <`nodemon`>
+
+4. In the /client folder, tun <`nom start`>, with Expo Go installed on your phone, scan the genereated QR code to open the app
+
+5. Make sure your wifi IP address in /client/services matches the wifi address you are connected to
+
+6. Go to google auth playground, choose the fitness API and sleep read data, then retrieve the bearer token. Enter that token in the dotFile.js file, 'Bearer ya29....', make sure you write 'Bearer' in front. The link for the playground is: https://developers.google.com/oauthplayground/
+
+## Tech Stack
+
+Front-end
+
+- React Native with Expo
+
+## Back-end
+
+- Express
+- MongoDb
